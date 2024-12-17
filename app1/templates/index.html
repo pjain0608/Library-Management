@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library | Home</title>
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/128/3038/3038168.png">
+    <style>
+        /* Header Styling */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: beige;
+        }
+
+        header {
+            height: fit-content;
+            width: 100%;
+            background-color: black;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .left{
+            height: 60px;
+            width: 50%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 0 1rem;
+        }
+
+        .left h1 {
+            color: white;
+        }
+
+        .right {
+            height: 60px;
+            width: 50%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 0 1rem;
+        }
+
+        .right2 {
+            width: 50%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .right-button a button {
+            height: 2.5rem;
+            width: 6rem;
+            border-radius: 1rem;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Search Button */
+
+        .butt {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 0.5rem;
+            border: 2px solid black;
+            padding: 1rem;
+            width: 20%;
+            border-radius: 1rem;
+        }
+
+        .search-button form {
+            display: inline-block;
+        }
+
+        .search-button input[type="text"] {
+            border: 1px solid #000000;
+            border-radius: 1rem;
+            padding: 5px;
+        }
+
+        .search-button button {
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            border: 1px solid;
+            border-radius: 1rem;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        /* Body Styling */
+
+        .body {
+            width: 100%;
+            height: fit-content;
+            margin-top: 2rem;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        /* Table Styling */
+
+        .table-contents {
+            width: 80%;
+            border: 2px solid black;
+            /* border-radius: 1rem; */
+            background-color: white;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: black;
+            color: white;
+            font-weight: bold;
+        }
+
+        td {
+            color: black;
+            word-wrap: break-word;
+            max-width: 200px;
+        }
+
+        td:hover {
+            text-decoration: underline;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tbody tr:hover {
+            background-color: #e6e6e6;
+            cursor: pointer;
+        }
+
+        .title a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="left">
+            <h1>
+                Library Management Portal
+            </h1>
+        </div>
+        <div class="right">
+            <div class="right2">
+                <div class="right-button">
+                    <a href="{% url 'index' %}">
+                        <button type="submit">
+                            Home
+                        </button>
+                    </a>
+                </div>
+                <div class="right-button">
+                    <a href="{% url 'add' %}">
+                        <button type="submit">
+                            Add Books
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="butt">
+        <div class="search-button">
+            <form method="GET" action="">
+                <div>
+                    <input type="text" name="search" placeholder="Search Books" style="padding: 10px;" autocomplete="off">
+                    <button type="submit" style="padding: 11px;">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <section class="body">
+        <div class="table-contents">
+            <table>
+                <thead>
+                    <th>
+                        S.No
+                    </th>
+                    <th>
+                        Name of the Books Available
+                    </th>
+                </thead>
+                {% for i in data %}
+                <tbody>
+                    <tr>
+                        <td>
+                            {{ forloop.counter }}
+                        </td>
+                        <td class="title">
+                            <a href="{% url 'display' i.id %}">
+                                {{i.name}}
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
+    </section>
+</body>
+</html>

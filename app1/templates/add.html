@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Books</title>
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/128/3038/3038168.png">
+    <style>
+        /* Header Styling */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: beige;
+        }
+
+        header {
+            height: fit-content;
+            width: 100%;
+            background-color: black;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .left{
+            height: 60px;
+            width: 50%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 0 1rem;
+        }
+
+        .left h1 {
+            color: white;
+        }
+
+        .right {
+            height: 60px;
+            width: 50%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 0 1rem;
+        }
+
+        .right2 {
+            width: 50%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .right-button a button {
+            height: 2.5rem;
+            width: 6rem;
+            border-radius: 1rem;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Form Styling */
+
+        .form-contents {
+            width: 100%;
+            margin-top: 1rem;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            /* border: 2px solid black; */
+        }
+
+        .contents-main {
+            border: 2px solid black;
+            border-radius: 1rem;
+            width: 40%;
+            padding: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 1rem ;
+        }
+
+        label {
+            width: 30%;
+            font-weight: bold;
+        }
+
+        /* Input Fields, Select, and Textarea Styling */
+        input, select, textarea {
+            width: 70%;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            height: 2rem;
+            font-size: 1rem;
+        }
+
+        textarea {
+            resize: none;
+            height: 80px;
+        }
+
+        .submit-button {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-top: 1.5rem;
+        }
+
+        .submit-button button{
+            height: 2.5rem;
+            width: 6rem;
+            border-radius: 1rem;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="left">
+            <h1>
+                Library Management Portal
+            </h1>
+        </div>
+        <div class="right">
+            <div class="right2">
+                <div class="right-button">
+                    <a href="{% url 'index' %}">
+                        <button type="submit">
+                            Home
+                        </button>
+                    </a>
+                </div>
+                <div class="right-button">
+                    <a href="{% url 'add' %}">
+                        <button type="submit">
+                            Add Books
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <h2 style="text-align: center; margin-top: 1rem;">Add Book</h2>
+    {% include 'form.html' %}
+</body>
+</html>

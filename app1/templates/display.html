@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details</title>
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/128/3038/3038168.png">
+    <style>
+        /* Header Styling */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: beige;
+        }
+
+        header {
+            height: fit-content;
+            width: 100%;
+            background-color: black;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .left{
+            height: 60px;
+            width: 50%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 0 1rem;
+        }
+
+        .left h1 {
+            color: white;
+        }
+
+        .right {
+            height: 60px;
+            width: 50%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 0 1rem;
+        }
+
+        .right2 {
+            width: 50%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .right-button a button {
+            height: 2.5rem;
+            width: 6rem;
+            border-radius: 1rem;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Search Button */
+
+        .search-button form {
+            display: inline-block;
+        }
+
+        .search-button input[type="text"] {
+            border: 1px solid #ccc;
+            border-radius: 1rem;
+            padding: 5px;
+        }
+
+        .search-button button {
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            border: none;
+            border-radius: 1rem;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .body {
+            width: 100%;
+            height: fit-content;
+            margin-top: 2rem;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .card {
+            height: 15rem;
+            width: 50%;
+            border: 2px solid;
+            border-radius: 1rem;
+            background-color: aliceblue;
+        }
+
+        .heading {
+            display: flex;
+            width: 100%;
+            justify-content: flex-start;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 2px solid black;
+        }
+
+        .heading h2 {
+            text-decoration: underline;
+        }
+
+        .details {
+            padding: 1rem;
+            /* border: 2px solid white; */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .rating {
+            border-top: 2px solid black;
+            border-bottom: none;
+        }
+
+        .right-button {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 100%;
+        }
+
+        .buttons {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .page-buttons {
+            margin-top: 1rem;
+            width: 40%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .page-buttons a {
+            text-decoration: none;
+        }
+
+        .page-buttons button {
+            height: 2.5rem;
+            width: 10rem;
+            border-radius: 1rem;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="left">
+            <h1>
+                Library Management Portal
+            </h1>
+        </div>
+        <div class="right">
+            <div class="right2">
+                <div class="right-button">
+                    <a href="{% url 'index' %}">
+                        <button type="submit">
+                            Home
+                        </button>
+                    </a>
+                </div>
+                <div class="right-button">
+                    <a href="{% url 'add' %}">
+                        <button type="submit">
+                            Add Books
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <h2 style="text-align: center; margin-top: 1rem;">
+        Book Details
+    </h2>
+    <section class="body">
+        <div class="card">
+            <div class="heading">
+                <h2>{{ data1.name }}</h2>
+                <h3>Author : {{data1.author}}</h3>
+            </div>
+            <div class="details">
+                <div class="details-left">
+                    <h3>Price : ₹ {{data1.price}}/- </h3>
+                    <h3>Genre : {{data1.genre}}</h3>
+                </div>
+                <div class="details-right">
+                    <h3>Quantity Available : {{data1.quantity}}</h3>
+                </div>
+            </div>
+            <div class="heading rating">
+                <h3>Rating : {{data1.rating}} / 5</h3>
+            </div>
+        </div>
+    </section>
+    <div class="buttons">
+        <div class="page-buttons">
+            <a href="{% url 'edit' data1.id %}">
+                <button type="submit">
+                    Edit Book Details
+                </button>
+            </a>
+            <a href="{% url 'index' %}">
+                <button type="submit">
+                    Back
+                </button>
+            </a>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <button  type="submit" onclick="return confirm('Are you sure you want to delete this book?');">
+                    Delete Book Details
+                </button>
+            </form>
+        </div>
+    </div>
+    <!-- <div>
+        <div>
+            <h3>
+                
+            </h3>
+            <h3>
+                
+            </h3>
+            
+        </div>
+    </div> -->
+</body>
+</html>
