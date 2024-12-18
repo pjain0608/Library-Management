@@ -1,3 +1,45 @@
+# 📚 Library Management System 
+
+🌟 Features
+-  Home Page : Displays a list of all available books in the library.
+Click on any book title to view detailed information about it.
+
+-  Display Page : Provides comprehensive details for a selected book, including:
+    -  📖 Name
+    -  ✍️ Author
+    -  📂 Genre
+    -  📦 Quantity Available
+    -  ⭐ Rating
+
+**Includes key functionality:**
+-  Edit Details: Update the book's information effortlessly.
+-  Back to Home Page: Navigate back to the main list of books.
+-  Delete Book Details: Remove unwanted book entries with ease.
+-  Search Bar: Quickly find books by title, author, or genre.
+-  Edit Page: Modify existing book details through an intuitive form.
+-  Save changes instantly using the Update button.
+
+**🚀 Why Use This Project?**
+This Library Management System is a perfect choice for learning and practicing:
+
+-  Django Framework for backend web development.
+-  CRUD operations (Create, Read, Update, Delete) with Python.
+-  Frontend styling using HTML and CSS.
+-  Database handling with SQLite.
+-  Search functionality and navigation in a user-friendly web application.
+
+# 💻 Tech Stack
+-  Frontend: HTML, CSS
+-  Backend: Python, Django Framework
+-  Database: SQLite
+
+**🎯 How to Get Started?**
+Clone the repository.
+Set up the virtual environment and install dependencies.
+Run database migrations.
+Launch the development server and start organizing your library!
+Feel free to contribute and make this project even better. Happy coding! 🚀
+
 # UI View
 
 ![Screenshot 2024-12-17 224808](https://github.com/user-attachments/assets/56de5418-19a5-44fa-a0e2-23990e7f1dc7)
